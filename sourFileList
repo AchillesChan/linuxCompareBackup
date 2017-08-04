@@ -1,0 +1,10 @@
+###sourceFileList example
+###on /etc/
+conf /etc/passwd
+conf /home/ms
+code /etc/ssh/
+code /root/slapd.txt
+data /var/log/secure
+data /var/log/messages
+data /var/log/audit/
+
