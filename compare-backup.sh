@@ -1,20 +1,20 @@
 #!/bin/bash
 declare -a filesArray
-sourceFileList="/etc/peifen-file-list"
-destNewDir=/root/caozuo/new/
-destOldDir=/root/caozuo/old/
+sourceFileList="/etc/backupFileList"
+destNewDir=/root/operation/new/
+destOldDir=/root/operation/old/
 operationDate=$(date +%Y%m%d-%H%M)
 operationVM=$(hostname)
-destRoot=/root/caozuo/
-hashFile=/root/caozuo/hashFile
-diffFile=/root/caozuo/diffFile
-destNewDirList=/root/caozuo/destNewDirList
+destRoot=/root/operation/
+hashFile=/root/operation/hashFile
+diffFile=/root/operation/diffFile
+destNewDirList=/root/operation/destNewDirList
 diffFn=diffFile
 excludeFileList=/etc/compareBackupExcludeList
 backupDir=/root/backup/
 tarBackupFileName="$operationVM"-"$operationDate".tar.gz
 ###sourceFileList example
-###on /etc/peifen-file-list
+###on /etc/backupFileList
 ##remove below '#'
 ##conf /etc/passwd
 ##conf /home/ms
@@ -36,11 +36,11 @@ if [ ! -e "$sourceFileList" ];then
 fi
 
 if [ ! -e "$hashFile" ];then
-	touch /root/caozuo/diffFile
+	touch /root/operation/diffFile
 fi
 
 if [ ! -e "$hashFile" ];then
-	touch /root/caozuo/hashFile
+	touch /root/operation/hashFile
 fi
 
 if [ ! -e "$backupDir" ];then
