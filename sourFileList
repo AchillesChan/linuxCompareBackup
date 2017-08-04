@@ -1,5 +1,6 @@
 ###sourceFileList example
 ###on /etc/
+###line Begin in "#" is ignored
 conf /etc/passwd
 conf /home/ms
 code /etc/ssh/
