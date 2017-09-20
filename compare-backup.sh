@@ -2,16 +2,16 @@
 declare -a filesArray
 readonly sourceFileList=/etc/custom-scripts/backupFileList
 readonly destNewDir=/root/operation/new/
-destOldDir=/root/operation/old/
+readonly destOldDir=/root/operation/old/
 operationDate=$(date +%Y%m%d-%H%M)
 operationVM=$(hostname)
-destRoot=/root/operation/
-hashFile=/root/operation/hashFile
-diffFile=/root/operation/diffFile
+readonly destRoot=/root/operation/
+readonly hashFile=/root/operation/hashFile
+readonly diffFile=/root/operation/diffFile
 destNewDirList=/root/operation/destNewDirList
-diffFn=diffFile
-excludeFileList=/etc/custom-scripts/compareBackupExcludeList
-backupDir=/root/backup/
+readonly diffFn=diffFile
+readonly excludeFileList=/etc/custom-scripts/compareBackupExcludeList
+readonly backupDir=/root/backup/
 tarBackupFileName="$operationVM"-"$operationDate".tar.gz
 
 
