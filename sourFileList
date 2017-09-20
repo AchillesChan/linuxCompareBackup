@@ -2,7 +2,7 @@
 ###on /etc/
 ###line Begin in "#" is ignored
 conf /etc/passwd
-conf /home/ms
+conf /home/
 code /etc/ssh/
 code /root/slapd.txt
 data /var/log/secure
