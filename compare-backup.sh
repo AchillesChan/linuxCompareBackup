@@ -94,7 +94,8 @@ do
 	###then move new to old
 	###then package old and compute md5
 	else	
-		if diff --exclude="$diffFn" --no-dereference -ur "$destNewDir$dirName" "$destOldDir$dirName" >"$diffFile"
+		if diff --exclude="$diffFn" --recursive --unified --exclude-from="$excludeFileList" \
+                "$destNewDir$dirName" "$destOldDir$dirName" >"$diffFile"
 		then
 			rm -rf "$destNewDir$dirName"
 		else rm -rf "$destOldDir$dirName" && \
