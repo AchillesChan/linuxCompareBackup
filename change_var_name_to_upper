@@ -1,0 +1,20 @@
+#>cat /etc/crontab |grep '\.sh'| \
+sed -e 's:^.*root\s\+::g' \
+-e 's:^[a-zA-Z0-9_]\+\s\+::g' \
+ -e 's:\s\+$::g'| \               ####upper is get script in /etc/crontab
+xargs -t -P 1 -n 1 -I {} sed -ibak -e 's:\(^readonly \)\([a-zA-Z0-9_]\+=\):\1\U\2:g' \ 
+-e 's:\($[A-Z0-9_a-z]\+\):\U\1:g' \ 
+-e 's:\(declare -a \)\([a-zA-Z0-9]\+\):\1\U\2:g' \
+-e 's:\(read -r \)\([a-zA-Z0-9]\+\):\1\U\2:g' \
+-e 's:\(^\s*[a-zA-Z0-9_]\+=\):\U\1:g'  {}       ####upper is transfomation var to Captain
+
+
+
+
+sed -i -e 's:\(^\s*[a-zA-Z0-9_]\+=\):\U\1:g' \          ###define var10
+-e 's:\(^readonly \)\([a-zA-Z0-9_]\+=\):\1\U\2:g' \     ###define var20
+-e 's:\($[A-Z0-9_a-z]\+\):\U\1:g' \                     ###use var30
+-e 's:\(declare -a \)\([a-zA-Z0-9]\+\):\1\U\2:g' \      ###define var40
+-e 's:\(read -r \)\([a-zA-Z0-9]\+\):\1\U\2:g' \         ###define var50
+compare-backup.sh
+
